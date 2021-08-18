@@ -1,0 +1,79 @@
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Courier New", Courier, monospace;
+}
+
+main {
+  width: 75%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 1em;
+  background-color: ghostwhite;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+  padding: 0.6em 0 0.1em 0;
+  animation: show 2.5s ease;
+}
+
+p {
+  text-align: center;
+  animation: show 2.5s ease;
+}
+
+a {
+  transition: transform 0.45s ease;
+}
+
+a:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.1);
+}
+
+.social-media {
+  text-align: center;
+  height: auto;
+  padding: 0 0 0.6em 0;
+}
+
+.social-media a {
+  color: white;
+  padding: 0.4em 0.6em;
+  display: inline-block;
+  border-radius: 2px;
+  animation: open 1s ease-out;
+}
+
+.github {
+  background-color: #222;
+}
+
+.twitter {
+  background-color: royalblue;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes open {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
