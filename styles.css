@@ -28,6 +28,7 @@ h4 {
 p {
   text-align: center;
   animation: show 1.5s ease;
+  padding-bottom: 15px;
 }
 
 a {
@@ -77,4 +78,19 @@ a:hover {
   to {
     transform: scaleX(1);
   }
+}
+
+#move {
+  width: 80%;
+  height: 500px;
+  margin: 0 auto;
+  background-color: royalblue;
+  position: relative;
+}
+
+#move > .square {
+  width: 75px;
+  height: 75px;
+  background-color: sandybrown;
+  position: absolute;
 }
