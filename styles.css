@@ -6,11 +6,17 @@
   list-style: none;
   font-family: "Courier New", Courier, monospace;
   color: #222;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 main {
   width: 75%;
-  height: 100vh;
+  height: auto;
   margin: 0 auto;
   padding: 0 1em;
   background-color: ghostwhite;
@@ -37,6 +43,24 @@ a {
 
 a:hover {
   transition: transform 0.3s ease;
+  transform: scale(1.1);
+}
+
+.button {
+  font-size: 14pt;
+  width: 100px;
+  height: 35px;
+  color: slateblue;
+  font-weight: bold;
+  border: 1px solid slateblue;
+  background-color: rgba(105, 90, 205, 0.1);
+  border-radius: 3px;
+  transition: transform 550ms ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  transition: transform 350ms ease;
   transform: scale(1.1);
 }
 
@@ -93,4 +117,46 @@ a:hover {
   height: 75px;
   background-color: sandybrown;
   position: absolute;
+}
+
+/* SCROLL WITH CLICK */
+.scroll-click {
+  height: 500px;
+  width: 80%;
+  background-color: #e5eee9;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.scroll-click .list {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  padding: 1em;
+}
+
+.scroll-click__item {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 200px;
+  border: 3px solid steelblue;
+  background-color: rgba(70, 131, 180, 0.1);
+}
+
+.scroll-click__item + .scroll-click__item {
+  margin-left: 10px;
+}
+
+.scroll-click__buttons--container {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#paya {
+}
+
+#paca {
 }
