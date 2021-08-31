@@ -57,24 +57,50 @@ function scrollClick() {
     if (scrollPosition <= 0) {
       scrollPosition = 0;
     } else {
-      scrollPosition -= 30;
+      scrollPosition -= 13;
     }
     list.scrollTo(scrollPosition, 0);
-    console.log(scrollPosition);
   };
 
   const scrollToRight = () => {
     const realListWidth = list.scrollWidth - list.clientWidth;
-    scrollPosition += 30;
+    scrollPosition += 13;
     if (scrollPosition > realListWidth) {
       scrollPosition = realListWidth;
     }
     list.scrollTo(scrollPosition, 0);
-    console.log(scrollPosition);
   };
 
   btnIzquierda.addEventListener("click", scrollToLeft);
   btnDerecha.addEventListener("click", scrollToRight);
+
+  const side = {
+    position: 0,
+    str: "",
+  };
+  let isMouseDown = false;
+  list.addEventListener("mousedown", () => {
+    isMouseDown = true;
+  });
+
+  list.addEventListener("mouseup", () => {
+    isMouseDown = false;
+  });
+
+  list.addEventListener("mousemove", (evt) => {
+    if (isMouseDown) {
+      const { clientX } = evt;
+      if (clientX > side.position) {
+        scrollToLeft();
+        side.position = clientX;
+        side.str = "Derecha";
+      } else {
+        scrollToRight();
+        side.position = clientX;
+        side.str = "Izquierda";
+      }
+    }
+  });
 }
 
 function main() {
