@@ -53,16 +53,22 @@ function scrollClick() {
     scrollPosition = event.target.scrollLeft;
   });
 
-  const scrollToLeft = (event) => {
-    console.log("scrollToLeft");
-    scrollPosition -= 30;
+  const scrollToLeft = () => {
+    if (scrollPosition <= 0) {
+      scrollPosition = 0;
+    } else {
+      scrollPosition -= 30;
+    }
     list.scrollTo(scrollPosition, 0);
     console.log(scrollPosition);
   };
 
-  const scrollToRight = (event) => {
-    console.log("scrollToRight");
+  const scrollToRight = () => {
+    const realListWidth = list.scrollWidth - list.clientWidth;
     scrollPosition += 30;
+    if (scrollPosition > realListWidth) {
+      scrollPosition = realListWidth;
+    }
     list.scrollTo(scrollPosition, 0);
     console.log(scrollPosition);
   };
