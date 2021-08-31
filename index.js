@@ -53,18 +53,19 @@ function scrollClick() {
     scrollPosition = event.target.scrollLeft;
   });
 
+  const SCROLL_DISTANCE = 9;
   const scrollToLeft = () => {
     if (scrollPosition <= 0) {
       scrollPosition = 0;
     } else {
-      scrollPosition -= 13;
+      scrollPosition -= SCROLL_DISTANCE;
     }
     list.scrollTo(scrollPosition, 0);
   };
 
   const scrollToRight = () => {
     const realListWidth = list.scrollWidth - list.clientWidth;
-    scrollPosition += 13;
+    scrollPosition += SCROLL_DISTANCE;
     if (scrollPosition > realListWidth) {
       scrollPosition = realListWidth;
     }
@@ -74,15 +75,11 @@ function scrollClick() {
   btnIzquierda.addEventListener("click", scrollToLeft);
   btnDerecha.addEventListener("click", scrollToRight);
 
-  const side = {
-    position: 0,
-    str: "",
-  };
+  const side = { position: 0, str: "" };
   let isMouseDown = false;
   list.addEventListener("mousedown", () => {
     isMouseDown = true;
   });
-
   list.addEventListener("mouseup", () => {
     isMouseDown = false;
   });
